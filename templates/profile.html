@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Профиль</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="main-box">
+
+<h1>Личный кабинет</h1>
+
+<table>
+<tr>
+<th>Предмет</th>
+<th>Балл</th>
+<th>Оценка</th>
+</tr>
+
+{% for grade in grades %}
+<tr>
+<td>{{ grade[0] }}</td>
+<td>{{ grade[1] }}</td>
+<td>{{ letter_grade(grade[1]) }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<h2>Средний балл: {{ avg }}</h2>
+
+</div>
+
+</body>
+</html>

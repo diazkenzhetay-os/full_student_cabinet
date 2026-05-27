@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Журнал</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="header">
+        <div>
+            <h1>📘 Электронный журнал</h1>
+            <h2>{{ teacher_name }}</h2>
+            <p>Группа: {{ group_name }}</p>
+        </div>
+
+        <div>
+            <a href="/admin" class="btn">⬅ Назад</a>
+            <a href="/logout" class="btn red-btn">Выйти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Журнал преподавателя</h2>
+
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Студент</th>
+
+                {% for subject in subjects %}
+                    <th>{{ subject[1] }}</th>
+                {% endfor %}
+
+                <th>Средний балл</th>
+                <th>Буквенная оценка</th>
+            </tr>
+
+            {% for student in students %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ student.full_name }}</td>
+
+                {% for grade in student.grades %}
+                <td>
+                    {% if grade >= 90 %}
+                        <span class="grade green">A<br>{{ grade }}%</span>
+                    {% elif grade >= 75 %}
+                        <span class="grade blue">B<br>{{ grade }}%</span>
+                    {% elif grade >= 65 %}
+                        <span class="grade yellow">C<br>{{ grade }}%</span>
+                    {% elif grade >= 50 %}
+                        <span class="grade orange">D<br>{{ grade }}%</span>
+                    {% else %}
+                        <span class="grade red">F<br>{{ grade }}%</span>
+                    {% endif %}
+                </td>
+                {% endfor %}
+
+                <td>{{ student.avg }}%</td>
+                <td><b>{{ letter_grade(student.avg) }}</b></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>

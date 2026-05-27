@@ -1,0 +1,236 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0d47a1,#1565c0,#1976d2);
+    min-height:100vh;
+}
+
+.dashboard{
+    width:95%;
+    margin:25px auto;
+    background:white;
+    padding:25px;
+    border-radius:25px;
+}
+
+.header{
+    background:#0d47a1;
+    color:white;
+    padding:25px;
+    border-radius:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.card{
+    background:#f4f8ff;
+    border-radius:20px;
+    padding:25px;
+    margin-top:20px;
+}
+
+.btn{
+    background:#1565c0;
+    color:white;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:12px;
+    margin-left:10px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#08306b;
+}
+
+.red-btn{
+    background:#d32f2f;
+}
+
+.top-form{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.top-form input{
+    flex:1;
+}
+
+input{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ccc;
+}
+
+button{
+    padding:12px 18px;
+    border:none;
+    background:#0d47a1;
+    color:white;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#08306b;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+    background:white;
+}
+
+th{
+    background:#0d47a1;
+    color:white;
+    padding:14px;
+}
+
+td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+tr:nth-child(even){
+    background:#eef4ff;
+}
+
+.grade{
+    display:inline-block;
+    min-width:70px;
+    padding:8px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.green{
+    background:#4caf50;
+    color:white;
+}
+
+.blue{
+    background:#2196f3;
+    color:white;
+}
+
+.yellow{
+    background:#fbc02d;
+    color:black;
+}
+
+.orange{
+    background:#ff9800;
+    color:white;
+}
+
+.red{
+    background:#f44336;
+    color:white;
+}
+
+.subjects{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.subject-box{
+    background:#1976d2;
+    color:white;
+    padding:15px 20px;
+    border-radius:15px;
+    font-weight:bold;
+}
+
+.grade-form{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.grade-form input{
+    width:80px;
+}
+.login-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0d47a1,#1565c0,#42a5f5);
+}
+
+.login-box{
+    width:420px;
+    background:white;
+    border-radius:30px;
+    padding:40px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    text-align:center;
+}
+
+.logo{
+    font-size:70px;
+    margin-bottom:10px;
+}
+
+.login-box h1{
+    margin:0;
+    color:#0d47a1;
+    font-size:34px;
+}
+
+.group-text{
+    color:gray;
+    margin-top:10px;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.login-form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.login-form input{
+    padding:15px;
+    border-radius:14px;
+    border:1px solid #ccc;
+    font-size:16px;
+}
+
+.login-form button{
+    padding:15px;
+    border:none;
+    border-radius:14px;
+    background:#1565c0;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.login-form button:hover{
+    background:#0d47a1;
+}
+
+.teachers-box{
+    margin-top:35px;
+}
+
+.teacher-card{
+    background:#eef4ff;
+    padding:14px;
+    border-radius:14px;
+    margin-top:10px;
+    font-weight:bold;
+    color:#0d47a1;
+}

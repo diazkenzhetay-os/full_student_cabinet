@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель преподавателя</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <div class="header">
+        <div>
+            <h1>👩‍🏫 Панель преподавателя</h1>
+            <h2>{{ teacher_name }}</h2>
+            <p>Группа: {{ group_name }}</p>
+        </div>
+
+        <div>
+            <a href="/journal" class="btn">📘 Мой журнал</a>
+            <a href="/logout" class="btn red-btn">Выйти</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>📚 Мои предметы</h2>
+
+        <div class="subjects">
+            {% for subject in teacher_subjects %}
+                <div class="subject-box">{{ subject }}</div>
+            {% endfor %}
+        </div>
+
+        <form method="POST" class="top-form">
+            <input type="hidden" name="action" value="add_subject">
+            <input type="text" name="subject_name" placeholder="Добавить новый предмет" required>
+            <button type="submit">Добавить предмет</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>➕ Добавить ученика</h2>
+
+        <form method="POST" class="top-form">
+            <input type="hidden" name="action" value="add_student">
+            <input type="text" name="full_name" placeholder="ФИО ученика" required>
+            <button type="submit">Добавить ученика</button>
+        </form>
+    </div>
+
+    <div class="card">
+        <h2>✏️ Удобное изменение оценок</h2>
+
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Студент</th>
+                <th>Предмет</th>
+                <th>Балл</th>
+                <th>Буквенная оценка</th>
+                <th>Изменить</th>
+            </tr>
+
+            {% for item in data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+
+                <td>
+                    {% if item[3] >= 90 %}
+                        <span class="grade green">{{ item[3] }}%</span>
+                    {% elif item[3] >= 75 %}
+                        <span class="grade blue">{{ item[3] }}%</span>
+                    {% elif item[3] >= 65 %}
+                        <span class="grade yellow">{{ item[3] }}%</span>
+                    {% elif item[3] >= 50 %}
+                        <span class="grade orange">{{ item[3] }}%</span>
+                    {% else %}
+                        <span class="grade red">{{ item[3] }}%</span>
+                    {% endif %}
+                </td>
+
+                <td>
+                    <b>{{ letter_grade(item[3]) }}</b>
+                </td>
+
+                <td>
+                    <form method="POST" class="grade-form">
+                        <input type="hidden" name="action" value="update_grade">
+                        <input type="hidden" name="grade_id" value="{{ item[0] }}">
+                        <input type="number" name="score" min="0" max="100" value="{{ item[3] }}" required>
+                        <button type="submit">Сохранить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</div>
+
+</body>
+</html>
